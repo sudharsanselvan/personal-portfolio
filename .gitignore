@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.local
+.vite/
+.DS_Store
+
+# Optional - Codex/AI agent files
+.agents/
