@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import About from "./components/About";
 import AnimatedCursor from "./components/AnimatedCursor";
 import Contact from "./components/Contact";
@@ -10,20 +11,38 @@ import TechStack from "./components/TechStack";
 import Certification from "./components/Certifications";
 
 export default function App() {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIsPageLoaded(true), 1400);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-ink text-white">
-      <AnimatedCursor />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <TechStack />
-        <Experience />
-        <Projects />
-        <Certification />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <div className={`page-loader ${isPageLoaded ? "is-hidden" : ""}`} aria-hidden="true">
+        <div className="page-loader__core">
+          <div className="page-loader__orbit page-loader__orbit--outer" />
+          <div className="page-loader__orbit page-loader__orbit--inner" />
+          <div className="page-loader__pulse" />
+          <span className="page-loader__label">Loading</span>
+        </div>
+      </div>
+
+      <div className={`app-shell relative min-h-screen overflow-x-hidden transition-opacity duration-700 ${isPageLoaded ? "opacity-100" : "opacity-0"}`}>
+        <AnimatedCursor />
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <TechStack />
+          <Experience />
+          <Projects />
+          <Certification />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

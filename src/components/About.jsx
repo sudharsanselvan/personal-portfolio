@@ -49,6 +49,7 @@ export default function About() {
             transition={{ duration: 0.75, ease: "easeOut" }}
             className="relative mx-auto w-full max-w-md"
           >
+            
             <div className="absolute inset-8 rounded-full bg-gradient-to-br from-violet-500/25 via-cyan-400/10 to-emerald-300/10 blur-3xl" />
             <div className="relative aspect-square rounded-full border border-white/10 bg-[#070b16]/82 p-5 shadow-glow">
               <div className="grid h-full place-items-center overflow-hidden rounded-full border border-violet-200/20 bg-[radial-gradient(circle_at_50%_30%,rgba(167,139,250,0.28),rgba(5,7,18,0.96)_60%)]">
@@ -58,6 +59,7 @@ export default function About() {
                     alt={`${profile.name} profile`}
                     className="h-full w-full rounded-full object-cover"
                   />
+                  
                 ) : (
                   <div className="text-center">
                     <div className="mx-auto grid h-28 w-28 place-items-center rounded-full border border-white/15 bg-white/[0.06] text-4xl font-black text-white shadow-cyan sm:h-36 sm:w-36 sm:text-5xl">
@@ -66,6 +68,7 @@ export default function About() {
                     <p className="mt-5 text-sm font-semibold uppercase tracking-[0.28em] text-violet-100">
                       Java Backend
                     </p>
+                    
                   </div>
                 )}
               </div>

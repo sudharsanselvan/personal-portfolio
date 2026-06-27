@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, Download, Github, Linkedin, Mail, Rocket, Send } from "lucide-react";
+import { ArrowDown, Briefcase, Download, Github, Linkedin, Mail, Rocket, Send } from "lucide-react";
 import { profile } from "../data/profile";
 
 const snippets = [
@@ -11,6 +11,17 @@ const snippets = [
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
+  const handleHireMe = (event) => {
+    event.preventDefault();
+
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: shouldReduceMotion ? "auto" : "smooth", block: "start" });
+    }
+
+    window.location.href = `mailto:${profile.email}?subject=Hire%20Me%20Opportunity&body=Hi%20Sudharsan,%20I%20would%20love%20to%20discuss%20an%20opportunity%20with%20you.`;
+  };
+
   return (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-28">
       <div className="absolute inset-0 panel-grid opacity-40" />
@@ -20,6 +31,8 @@ export default function Hero() {
       </p>
 
       <div className="section-shell relative z-10 grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr]">
+        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,7 +58,11 @@ export default function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a href="#projects" className="button-primary">
+            <button type="button" onClick={handleHireMe} className="button-primary">
+              <Briefcase size={18} aria-hidden="true" />
+              Hire Me
+            </button>
+            <a href="#projects" className="button-secondary">
               <Rocket size={18} aria-hidden="true" />
               View Projects
             </a>
@@ -99,6 +116,8 @@ export default function Hero() {
                 <span className="text-emerald-200">createOrder</span>
                 <span className="text-slate-300">(OrderRequest request) {"{"}</span>
               </p>
+
+              
               <div className="space-y-3 pl-4">
                 {snippets.map((snippet, index) => (
                   <motion.p
@@ -137,6 +156,7 @@ export default function Hero() {
         href="#about"
         className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm text-slate-300 backdrop-blur transition hover:text-white md:flex"
       >
+        
         Scroll
         <ArrowDown size={16} aria-hidden="true" />
       </a>

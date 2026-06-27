@@ -1,8 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Menu, Moon, Music2, Radius, Volume2, VolumeX, X } from "lucide-react";
+import { Menu, Moon, Music2, Sun, Volume2, VolumeX, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { navItems, profile } from "../data/profile";
-import { BiBorderRadius } from "react-icons/bi";
 
 export default function Navbar() {
   const shouldReduceMotion = useReducedMotion();
@@ -12,6 +11,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [accent, setAccent] = useState("violet");
   const [soundOn, setSoundOn] = useState(false);
+  const [themeTransitioning, setThemeTransitioning] = useState(false);
+  const themeTransitionTimeout = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 32);
@@ -23,6 +24,12 @@ export default function Navbar() {
   useEffect(() => {
     document.documentElement.dataset.accent = accent === "cyan" ? "cyan" : "violet";
   }, [accent]);
+
+  useEffect(() => () => {
+    if (themeTransitionTimeout.current) {
+      window.clearTimeout(themeTransitionTimeout.current);
+    }
+  }, []);
 
   const stopAmbientSound = useCallback(() => {
     const audio = audioRef.current;
@@ -146,6 +153,20 @@ export default function Navbar() {
     setSoundOn(started);
   };
 
+  const isLightTheme = accent === "cyan";
+  const ThemeIcon = isLightTheme ? Sun : Moon;
+
+  const toggleAccent = () => {
+    setAccent((current) => (current === "violet" ? "cyan" : "violet"));
+    setThemeTransitioning(true);
+
+    if (themeTransitionTimeout.current) {
+      window.clearTimeout(themeTransitionTimeout.current);
+    }
+
+    themeTransitionTimeout.current = window.setTimeout(() => setThemeTransitioning(false), 360);
+  };
+
   const navButton = (item, mobile = false) => (
     <button
       key={item.id}
@@ -163,6 +184,12 @@ export default function Navbar() {
 
   return (
     <>
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none fixed inset-0 z-[55] transition-opacity duration-400 ${themeTransitioning ? "opacity-100" : "opacity-0"}`}
+        style={{ background: isLightTheme ? "rgba(255, 247, 233, 0.16)" : "rgba(5, 7, 18, 0.16)" }}
+      />
+
       <motion.header
         layout
         initial={false}
@@ -197,17 +224,17 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={() => setAccent((current) => (current === "violet" ? "cyan" : "violet"))}
-              className={`grid h-10 w-10 place-items-center rounded-full border bg-white/[0.055] transition hover:text-white ${
+              onClick={toggleAccent}
+              className={`grid h-10 w-10 place-items-center rounded-full border bg-white/[0.055] transition duration-300 hover:text-white ${
                 accent === "cyan"
-                  ? "border-cyan-200/40 text-cyan-100 shadow-cyan"
-                  : "border-white/10 text-slate-200 hover:border-violet-200/35"
+                  ? "border-cyan-200/40 bg-cyan-300/10 text-cyan-100 shadow-[0_0_18px_rgba(34,211,238,0.16)]"
+                  : "border-white/10 text-violet-100 hover:border-violet-200/35"
               }`}
-              aria-label={`Switch to ${accent === "violet" ? "cyan" : "violet"} accent`}
-              aria-pressed={accent === "cyan"}
-              title={`Switch to ${accent === "violet" ? "cyan" : "violet"} accent`}
+              aria-label={isLightTheme ? "Switch to dark theme" : "Switch to light theme"}
+              aria-pressed={isLightTheme}
+              title={isLightTheme ? "Switch to dark theme" : "Switch to light theme"}
             >
-              <Moon size={20} aria-hidden="true" />
+              <ThemeIcon size={20} aria-hidden="true" />
             </button>
             <button
               type="button"
