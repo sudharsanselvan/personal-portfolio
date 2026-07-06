@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import About from "./components/About";
-import AnimatedCursor from "./components/AnimatedCursor";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
@@ -30,7 +29,6 @@ export default function App() {
       </div>
 
       <div className={`app-shell relative min-h-screen overflow-x-hidden transition-opacity duration-700 ${isPageLoaded ? "opacity-100" : "opacity-0"}`}>
-        <AnimatedCursor />
         <Navbar />
         <main>
           <Hero />

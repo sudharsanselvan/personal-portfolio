@@ -41,7 +41,7 @@ export default function About() {
       <div className="section-shell">
         <SectionTitle eyebrow="More about me" title="About Me" subtitle="Focused on practical backend engineering, clean API design, and reliable application architecture." />
 
-        <div className="mt-16 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-16 grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr]">
           <motion.div
             initial={{ opacity: 0, x: -34 }}
             whileInView={{ opacity: 1, x: 0 }}

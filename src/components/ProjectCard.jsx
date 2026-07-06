@@ -20,7 +20,7 @@ export default function ProjectCard({ project, index }) {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/70 to-transparent opacity-70" />
       <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-violet-500/10 blur-3xl transition duration-500 group-hover:bg-cyan-400/10" />
 
-      <div className="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="relative grid gap-6 md:grid-cols-[1.05fr_0.95fr]">
         <div>
           <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-200/15 bg-cyan-200/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">
             <RadioTower size={14} aria-hidden="true" />

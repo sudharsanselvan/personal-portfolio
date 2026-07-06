@@ -24,7 +24,6 @@
 }
 
 :root[data-accent="cyan"] {
-  color-scheme: light;
   --accent-rgb: 245 158 11;
   --accent-soft: rgba(245, 158, 11, 0.16);
   --accent-strong: #d97706;
@@ -32,16 +31,6 @@
   --accent-primary-hover: #fbbf24;
   --page-glow-primary: rgba(245, 158, 11, 0.16);
   --page-glow-secondary: rgba(214, 182, 129, 0.18);
-  --page-bg-start: #f8efe2;
-  --page-bg-mid: #fffaf3;
-  --page-bg-end: #f3ebdc;
-  --page-surface: rgba(255, 255, 255, 0.82);
-  --page-border: rgba(120, 113, 108, 0.16);
-  --page-shadow: rgba(120, 113, 108, 0.16);
-  --text-primary: #1f2937;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --grid-color: rgba(15, 23, 42, 0.06);
 }
 
 * {

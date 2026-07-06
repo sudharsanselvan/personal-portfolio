@@ -30,7 +30,7 @@ export default function Hero() {
         Backend Developer
       </p>
 
-      <div className="section-shell relative z-10 grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="section-shell relative z-10 grid items-center gap-12 py-20 md:grid-cols-[1.05fr_0.95fr]">
         
 
         <motion.div

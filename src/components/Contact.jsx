@@ -21,7 +21,7 @@ export default function Contact() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="glass-card mx-auto mt-14 max-w-4xl overflow-hidden rounded-lg"
         >
-          <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid gap-0 md:grid-cols-[0.9fr_1.1fr]">
             <div className="border-b border-white/10 bg-white/[0.035] p-6 sm:p-8 lg:border-b-0 lg:border-r">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-200/15 bg-emerald-300/10 px-3 py-1 text-sm font-semibold text-emerald-100">
                 <Sparkles size={16} aria-hidden="true" />
