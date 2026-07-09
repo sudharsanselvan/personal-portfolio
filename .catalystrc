@@ -1,0 +1,48 @@
+{
+  "defaults": {
+    "project": 2,
+    "env": 1
+  },
+  "actives": {
+    "project": 2,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "56135000000013024",
+      "name": "Project-Rainfall",
+      "domain": {
+        "id": "50043799448",
+        "name": "project-rainfall-60077341857.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60077341857",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "id": "56135000000013049",
+      "name": "My-Profile",
+      "domain": {
+        "id": "50043799937",
+        "name": "my-profile-60077341857.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60077341857",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

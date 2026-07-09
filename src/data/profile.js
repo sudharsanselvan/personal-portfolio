@@ -1,3 +1,6 @@
+import resumeUrl from "../assests/Resume/Resume_Sudharsanselvan.pdf";
+import profileImage from "../assests/Images/profileImage.png";
+
 export const profile = {
   name: "Sudharsanselvan T",
   logoName: "Sudharsanselvan T.",
@@ -9,8 +12,8 @@ export const profile = {
   status: "Open to Work",
   githubUrl: "https://github.com/sudharsanselvan/",
   linkedinUrl: "https://www.linkedin.com/in/sudharsanselvan/",
-  resumeUrl: "/src/assests/Resume/Resume_Sudharsanselvan.pdf",
-  profileImage: "src/assests/Images/profileImage.png",
+  resumeUrl,
+  profileImage,
 };
 
 export const navItems = [

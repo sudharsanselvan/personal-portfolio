@@ -85,7 +85,7 @@ export default function Navbar() {
             aria-label="Go to home"
           >
             <span className="grid h-11 w-10 place-items-center rounded-full border border-violet-200/20 bg-violet-300/10 text-xl text-violet-100">
-              <img className="rounded-full grid h-10 w-10" src="/src/assests/Images/profileImage.png" alt="logo"/>
+              <img className="rounded-full grid h-10 w-10" src={profile.profileImage} alt="logo" />
             </span>
             <span>{profile.logoName}</span>
           </button>
